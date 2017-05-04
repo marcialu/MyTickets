@@ -1,0 +1,87 @@
+<mvc:View controllerName="MyTickets.controller.CreateEntity" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="{viewModel>/viewTitle}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm"
+				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024"
+				title="{= ${viewModel>/mode} === 'edit'? 'Edit ZSTS_SRV.TICKET': 'New ZSTS_SRV.TICKET'}">
+				<f:content>
+					<Label text="Ticket ID" required="true"/>
+					<Input name="TicketId" id="TicketId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="{= ${viewModel>/mode} === 'edit'? false: true}" visible="true"
+						value="{ path: 'TicketId', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10, nullable:false } }"/>
+					<Label text="Description" required="false"/>
+					<Input name="Description" id="Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Description', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:40 } }"/>
+					<Label text="Solution Category ID" required="true"/>
+					<Input name="CategoryId" id="CategoryId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'CategoryId', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }"/>
+					<Label text="SolutionCategoryDesc" required="false"/>
+					<Input name="SolcatTxt" id="SolcatTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false" visible="true"
+						value="{ path: 'SolcatTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255 } }"/>
+					<Label text="Ticket Text" required="false"/>
+					<Input name="TicketTxt" id="TicketTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'TicketTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255 } }"/>
+					<Label text="Solution Text" required="false"/>
+					<Input name="SolutionTxt" id="SolutionTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'SolutionTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255 } }"/>
+					<Label text="Priority" required="false"/>
+					<Input name="Priority" id="Priority_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Priority', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Priority Text" required="false"/>
+					<Input name="PriorityTxt" id="PriorityTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false" visible="true"
+						value="{ path: 'PriorityTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:20 } }"/>
+					<Label text="Status" required="false"/>
+					<Input name="Status" id="Status_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Status', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Status Text" required="false"/>
+					<Input name="StatusTxt" id="StatusTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false" visible="true"
+						value="{ path: 'StatusTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:20 } }"/>
+					<Label text="Rating" required="false"/>
+					<Input name="Rating" id="Rating_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Rating', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Rating Text" required="false"/>
+					<Input name="RatingTxt" id="RatingTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false" visible="true"
+						value="{ path: 'RatingTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:20 } }"/>
+					<Label text="Comment" required="false"/>
+					<Input name="CommentTxt" id="CommentTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'CommentTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255 } }"/>
+					<Label text="Owner" required="false"/>
+					<Input name="Owner" id="Owner_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Owner', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:12 } }"/>
+					<Label text="Complete name" required="false"/>
+					<Input name="OwnerNameText" id="OwnerNameText_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false" visible="true"
+						value="{ path: 'OwnerNameText', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:80 } }"/>
+					<Label text="Solved By" required="false"/>
+					<Input name="SolvedBy" id="SolvedBy_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'SolvedBy', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:12 } }"/>
+					<Label text="Complete name" required="false"/>
+					<Input name="SolvedByNameText" id="SolvedByNameText_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false"
+						visible="true" value="{ path: 'SolvedByNameText', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:80 } }"/>
+					<Label text="Created by" required="false"/>
+					<Input name="Createnam" id="Createnam_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false" visible="true"
+						value="{ path: 'Createnam', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:12 } }"/>
+					<Label text="Time Stamp" required="false"/>
+					<DatePicker name="Createdat" value="{ path: 'Createdat', type: 'sap.ui.model.type.DateTime'}" id="Createdat_id" type="DateTime"
+						enabled="false" visible="true"/>
+					<Label text="User Name" required="false"/>
+					<Input name="Changname" id="Changname_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false" visible="true"
+						value="{ path: 'Changname', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:12 } }"/>
+					<Label text="Time Stamp" required="false"/>
+					<DatePicker name="Changedat" value="{ path: 'Changedat', type: 'sap.ui.model.type.DateTime'}" id="Changedat_id" type="DateTime"
+						enabled="false" visible="true"/>
+					<Label text="Deleted" required="false"/>
+					<Input name="Deleted" id="Deleted_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false" visible="true"
+						value="{ path: 'Deleted', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" enabled="{viewModel>/enableCreate}" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

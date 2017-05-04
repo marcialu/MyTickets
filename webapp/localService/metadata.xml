@@ -1,0 +1,126 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZSTS_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="PRIORITY" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Priority"/>
+                </Key>
+                <Property Name="Priority" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PriorityTxt" Type="Edm.String" MaxLength="20" sap:label="Priority Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="RATING" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Rating"/>
+                </Key>
+                <Property Name="Rating" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Rating" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RatingTxt" Type="Edm.String" MaxLength="20" sap:label="Rating Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="STATUS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Status"/>
+                </Key>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusTxt" Type="Edm.String" MaxLength="20" sap:label="Status Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SOLUTION" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SolutionId"/>
+                </Key>
+                <Property Name="SolutionId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Solution ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:label="Description" sap:sortable="false"/>
+                <Property Name="CategoryId" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Solution Category ID"/>
+                <Property Name="SolcatTxt" Type="Edm.String" MaxLength="255" sap:label="SolutionCategoryDesc" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FaqTxt" Type="Edm.String" MaxLength="255" sap:label="FAQ Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SolutionTxt" Type="Edm.String" MaxLength="255" sap:label="Solution Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Createnam" Type="Edm.String" MaxLength="12" sap:label="Created by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Createdat" Type="Edm.DateTime" Precision="0" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Changname" Type="Edm.String" MaxLength="12" sap:label="User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Changedat" Type="Edm.DateTime" Precision="0" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deleted" Type="Edm.String" MaxLength="1" sap:label="Deleted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="TICKET" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TicketId"/>
+                </Key>
+                <Property Name="TicketId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Ticket ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:label="Description" sap:sortable="false"/>
+                <Property Name="CategoryId" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Solution Category ID"/>
+                <Property Name="SolcatTxt" Type="Edm.String" MaxLength="255" sap:label="SolutionCategoryDesc" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TicketTxt" Type="Edm.String" MaxLength="255" sap:label="Ticket Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SolutionTxt" Type="Edm.String" MaxLength="255" sap:label="Solution Text" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Priority" Type="Edm.String" MaxLength="1" sap:label="Priority" sap:sortable="false"/>
+                <Property Name="PriorityTxt" Type="Edm.String" MaxLength="20" sap:label="Priority Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:label="Status" sap:sortable="false"/>
+                <Property Name="StatusTxt" Type="Edm.String" MaxLength="20" sap:label="Status Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rating" Type="Edm.String" MaxLength="1" sap:label="Rating" sap:sortable="false"/>
+                <Property Name="RatingTxt" Type="Edm.String" MaxLength="20" sap:label="Rating Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CommentTxt" Type="Edm.String" MaxLength="255" sap:label="Comment" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Owner" Type="Edm.String" MaxLength="12" sap:label="Owner"/>
+                <Property Name="OwnerNameText" Type="Edm.String" MaxLength="80" sap:label="Complete name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SolvedBy" Type="Edm.String" MaxLength="12" sap:label="Solved By"/>
+                <Property Name="SolvedByNameText" Type="Edm.String" MaxLength="80" sap:label="Complete name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Createnam" Type="Edm.String" MaxLength="12" sap:label="Created by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Createdat" Type="Edm.DateTime" Precision="0" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Changname" Type="Edm.String" MaxLength="12" sap:label="User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Changedat" Type="Edm.DateTime" Precision="0" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deleted" Type="Edm.String" MaxLength="1" sap:label="Deleted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SOLCAT" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SolcatId"/>
+                </Key>
+                <Property Name="SolcatId" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Solution Category ID" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SolcatTxt" Type="Edm.String" MaxLength="255" sap:label="SolutionCategoryDesc" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Createnam" Type="Edm.String" MaxLength="12" sap:label="Created by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Createdat" Type="Edm.DateTime" Precision="0" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Changname" Type="Edm.String" MaxLength="12" sap:label="User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Changedat" Type="Edm.DateTime" Precision="0" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deleted" Type="Edm.String" MaxLength="1" sap:label="Deleted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="SolCatToSol" Relationship="ZSTS_SRV.Assoc_SolCat_Sol" FromRole="FromRole_Assoc_SolCat_Sol" ToRole="ToRole_Assoc_SolCat_Sol"/>
+            </EntityType>
+            <EntityType Name="PERSONAS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="User"/>
+                    <PropertyRef Name="RoleId"/>
+                </Key>
+                <Property Name="User" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RoleId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Role ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Complete name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RoleTxt" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Role Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="Assoc_SolCat_Sol" sap:content-version="1">
+                <End Type="ZSTS_SRV.SOLCAT" Multiplicity="1" Role="FromRole_Assoc_SolCat_Sol"/>
+                <End Type="ZSTS_SRV.SOLUTION" Multiplicity="*" Role="ToRole_Assoc_SolCat_Sol"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Assoc_SolCat_Sol">
+                        <PropertyRef Name="SolcatId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Assoc_SolCat_Sol">
+                        <PropertyRef Name="CategoryId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZSTS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="PRIORITYSet" EntityType="ZSTS_SRV.PRIORITY" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="RATINGSet" EntityType="ZSTS_SRV.RATING" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="STATUSSet" EntityType="ZSTS_SRV.STATUS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOLUTIONSet" EntityType="ZSTS_SRV.SOLUTION" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="TICKETSet" EntityType="ZSTS_SRV.TICKET" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOLCATSet" EntityType="ZSTS_SRV.SOLCAT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PERSONASSet" EntityType="ZSTS_SRV.PERSONAS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="Assoc_SolCat_SolSet" Association="ZSTS_SRV.Assoc_SolCat_Sol" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SOLCATSet" Role="FromRole_Assoc_SolCat_Sol"/>
+                    <End EntitySet="SOLUTIONSet" Role="ToRole_Assoc_SolCat_Sol"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZSTS_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZSTS_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
