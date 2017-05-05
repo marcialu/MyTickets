@@ -108,7 +108,7 @@
 					]
 				},
 				{
-					"pattern": "TICKETSet/{TicketId}",
+					"pattern": "TICKETMYSet/{TicketId}",
 					"name": "object",
 					"target": [
 						"master",

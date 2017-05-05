@@ -192,7 +192,7 @@ sap.ui.define([
 
 			this._oViewModel.setProperty("/viewTitle", this._oResourceBundle.getText("createViewTitle"));
 			this._oViewModel.setProperty("/mode", "create");
-			var oContext = this._oODataModel.createEntry("TICKETSet", {
+			var oContext = this._oODataModel.createEntry("TICKETMYSet", {
 				success: this._fnEntityCreated.bind(this),
 				error: this._fnEntityCreationFailed.bind(this)
 			});
@@ -256,7 +256,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_fnEntityCreated: function(oData) {
-			var sObjectPath = this.getModel().createKey("TICKETSet", oData);
+			var sObjectPath = this.getModel().createKey("TICKETMYSet", oData);
 			this.getModel("appView").setProperty("/itemToSelect", "/" + sObjectPath); //save last created
 			this.getModel("appView").setProperty("/busy", false);
 			this.getRouter().getTargets().display("object");

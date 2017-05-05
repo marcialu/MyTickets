@@ -12,7 +12,7 @@
 		<semantic:content>
 			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
 			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
-			<List id="list" items="{ path: '/TICKETSet', sorter: { path: 'Description', descending: false }, groupHeaderFactory: '.createGroupHeader' }"
+			<List id="list" items="{ path: '/TICKETMYSet', sorter: { path: 'Description', descending: false }, groupHeaderFactory: '.createGroupHeader' }"
 				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
 				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true"
 				updateFinished="onUpdateFinished" selectionChange="onSelectionChange">

@@ -109,7 +109,7 @@
                 <EntitySet Name="RATINGSet" EntityType="ZSTS_SRV.RATING" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <EntitySet Name="STATUSSet" EntityType="ZSTS_SRV.STATUS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <EntitySet Name="SOLUTIONSet" EntityType="ZSTS_SRV.SOLUTION" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="TICKETSet" EntityType="ZSTS_SRV.TICKET" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="TICKETMYSet" EntityType="ZSTS_SRV.TICKET" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <EntitySet Name="SOLCATSet" EntityType="ZSTS_SRV.SOLCAT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <EntitySet Name="PERSONASSet" EntityType="ZSTS_SRV.PERSONAS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <AssociationSet Name="Assoc_SolCat_SolSet" Association="ZSTS_SRV.Assoc_SolCat_Sol" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">

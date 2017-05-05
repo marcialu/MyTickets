@@ -205,7 +205,7 @@ sap.ui.define([
 
 				iRememberAnIdOfAnObjectThatsNotInTheList: function() {
 					return this.waitFor(this.createAWaitForAnEntitySet({
-						entitySet: "TICKETSet",
+						entitySet: "TICKETMYSet",
 						success: function(aEntityData) {
 							this.waitFor({
 								id: "list",
@@ -364,10 +364,10 @@ sap.ui.define([
 						id: "page",
 						matchers: new PropertyStrictEquals({
 							name: "title",
-							value: "TICKETSet (0)"
+							value: "TICKETMYSet (0)"
 						}),
 						success: function() {
-							Opa5.assert.ok(true, "The list header displays 'TICKETSet (0)'");
+							Opa5.assert.ok(true, "The list header displays 'TICKETMYSet (0)'");
 						},
 						errorMessage: "The list still has items"
 					});
@@ -535,9 +535,9 @@ sap.ui.define([
 				theListShouldHaveAllEntries: function() {
 					var aAllEntities,
 						iExpectedNumberOfItems;
-					// retrieve all TICKETSet to be able to check for the total amount
+					// retrieve all TICKETMYSet to be able to check for the total amount
 					this.waitFor(this.createAWaitForAnEntitySet({
-						entitySet: "TICKETSet",
+						entitySet: "TICKETMYSet",
 						success: function(aEntityData) {
 							aAllEntities = aEntityData;
 						}
@@ -584,7 +584,7 @@ sap.ui.define([
 								viewName: sViewName,
 								matchers: new PropertyStrictEquals({
 									name: "title",
-									value: "TICKETSet (" + iExpectedLength + ")"
+									value: "TICKETMYSet (" + iExpectedLength + ")"
 								}),
 								success: function() {
 									Opa5.assert.ok(true, "The master page header displays " + iExpectedLength + " items");

@@ -14,7 +14,7 @@
       "test.html"
     ],
     "buildRequired": true,
-    "lastBuildDateTime": "Thu, 04 May 2017 09:29:56 GMT"
+    "lastBuildDateTime": "Thu, 04 May 2017 09:51:13 GMT"
   },
   "generation": [
     {
@@ -68,6 +68,6 @@
   "hcpdeploy": {
     "account": "i313404trial",
     "name": "mytickets",
-    "lastVersionWeTriedToDeploy": "1.0.1"
+    "lastVersionWeTriedToDeploy": "1.0.3"
   }
 }

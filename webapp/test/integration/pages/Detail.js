@@ -88,7 +88,7 @@ sap.ui.define([
 
 				iShouldBeOnTheObjectNPage: function(iObjIndex) {
 					return this.waitFor(this.createAWaitForAnEntitySet({
-						entitySet: "TICKETSet",
+						entitySet: "TICKETMYSet",
 						success: function(aEntitySet) {
 							var sItemName = aEntitySet[iObjIndex].Name;
 

@@ -23,9 +23,9 @@
     },
     "tile": {
         "type": "StaticTile",
-        "title": "My Tickets",
+        "title": "MyTickets",
         "subtitle": "",
-        "searchKeywords": "My Tickets,",
+        "searchKeywords": "MyTickets,",
         "displayIconUrl": "sap-icon://list",
         "displayInfoText": "",
         "size": "1x1",
