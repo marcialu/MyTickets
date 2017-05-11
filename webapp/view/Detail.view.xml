@@ -1,14 +1,38 @@
 <mvc:View controllerName="MyTickets.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
-	xmlns:footerbar="sap.ushell.ui.footerbar">
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form">
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
 		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
-			<ObjectHeader id="objectHeader" title="{Description}"></ObjectHeader>
-			
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm"
+				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title='Ticket Details'>
+				<f:content>
+					<Label text="Description" required="false"/>
+					<Input name="Description" id="Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Description', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:40 } }"/>
+					<Label text="Priority" required="false"/>
+					<Input name="Priority" id="Priority_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Priority', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Status" required="false"/>
+					<Input name="Status" id="Status_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Status', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:1 } }"/>
+					<Label text="Solution Category ID" required="true"/>
+					<Input name="CategoryId" id="CategoryId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'CategoryId', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }"/>
+					<Label text="Ticket Text" required="false"/>
+					<Input name="TicketTxt" id="TicketTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'TicketTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255 } }"/>
+					<Label text="Solution Text" required="false"/>
+					<Input name="SolutionTxt" id="SolutionTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" editable="false"
+						value="{ path: 'SolutionTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255 } }"/>
+		</f:content>
+		</f:SimpleForm>
 		</semantic:content>
 		<semantic:editAction>
 			<semantic:EditAction id="edit" press="onEdit"/>
 		</semantic:editAction>
+		<semantic:customFooterContent>
+			<Button enabled="true" id="ConfirmButton" press="onConfirm" text="Confirm"/>
+		</semantic:customFooterContent>
 		<semantic:customFooterContent>
 			<Button enabled="true" id="deleteButton" press="onDelete" text="Delete"/>
 		</semantic:customFooterContent>
