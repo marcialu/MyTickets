@@ -1,2 +1,2 @@
 # Student-My-Tickets
-The Tickets for the student account.
+Screen for the student own Tickets 
