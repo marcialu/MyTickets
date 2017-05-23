@@ -76,6 +76,9 @@
     },
     "/webapp/view/CreateEntity.view.xml": {
       "entitySet": "/TICKETMYSet"
+    },
+    "/webapp/view/Master.view.xml": {
+      "entitySet": "/TICKETMYSet"
     }
   }
 }
