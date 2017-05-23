@@ -17,7 +17,11 @@
 					</Toolbar>
 				</infoToolbar>
 				<items>
-					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{Description}"/>
+					<ObjectListItem type="Navigation" press="onSelectionChange" title="{Description}">
+					    <firstStatus>
+					        <ObjectStatus id="Status_id" text="{StatusTxt}"/>
+					    </firstStatus>
+					</ObjectListItem>
 				</items>
 			</List>
 		</semantic:content>
