@@ -3,7 +3,7 @@
 			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title="Ticket Details">
 				<f:content>
 					<Label text="Description" required="false"/>
-					<Input name="Description" id="Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{Description}"/>
+					<Input name="Description" id="Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{Description}" editable="false"/>
 					<Label text="Priority" width="100%" id="__label6"/>
 					<ComboBox xmlns:sap.ui.core="sap.ui.core" value="List Item 1" selectedKey="{Priority}" id="Priority_id" placeholder="{PriorityTxt}" items="{/PRIORITYSet}">
 					    <items>
@@ -16,11 +16,11 @@
 					        <sap.ui.core:ListItem text="{StatusTxt}" key="{Status}" id="Status_Item"/></items>
 					</ComboBox>
 					<Label text="Solution Category ID" required="true"/>
-					<Input name="CategoryId" id="CategoryId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'CategoryId', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }"/>
+					<Input name="CategoryId" id="CategoryId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'CategoryId', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }" editable="false"/>
 					<Label text="Ticket Text" required="false"/>
-					<Input name="TicketTxt" id="TicketTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'TicketTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255 } }"/>
+					<TextArea id="TicketText_id" value="{TicketTxt}" rows="10"/>
 					<Label text="Solution Text" required="false"/>
-					<Input name="SolutionTxt" id="SolutionTxt_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" editable="false" value="{ path: 'SolutionTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:255 } }"/>
+					<TextArea id="SolutionText_id" value="{SolutionTxt}" editable="false" rows="10"/>
 		</f:content>
 		</f:SimpleForm>
 		</semantic:content>
