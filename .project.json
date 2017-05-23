@@ -69,5 +69,13 @@
     "account": "i313404trial",
     "name": "mytickets",
     "lastVersionWeTriedToDeploy": "1.0.3"
+  },
+  "dataBinding": {
+    "/webapp/view/Detail.view.xml": {
+      "entitySet": "/TICKETMYSet"
+    },
+    "/webapp/view/CreateEntity.view.xml": {
+      "entitySet": "/TICKETMYSet"
+    }
   }
 }
