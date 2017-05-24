@@ -1,4 +1,6 @@
-/*global history */
+//global variables
+var sortorder = false;
+
 sap.ui.define([
 	"MyTickets/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
@@ -117,19 +119,33 @@ sap.ui.define([
 		onRefresh: function() {
 			this._oList.getBinding("items").refresh();
 		},
-
+		
 		/**
 		 * Event handler for the sorter selection.
 		 * @param {sap.ui.base.Event} oEvent the select event
 		 * @public
 		 */
 		onSort: function(oEvent) {
-			var sKey = oEvent.getSource().getSelectedItem().getKey(),
-				aSorters = this._oGroupSortState.sort(sKey);
-
-			this._applyGroupSort(aSorters);
+			var oView = this.getView();
+	        var oList = oView.byId("list");
+	        var oBinding = oList.getBinding("items");
+	    	var DESCENDING;
+	    	
+			if(sortorder === true) {
+				 DESCENDING = false;
+				 sortorder = false;
+			} else {
+				DESCENDING = true;
+				sortorder = true;
+			}
+	        var SORTKEY = "Description";
+	        var GROUP = false;
+	        var aSorter = [];
+	
+	        aSorter.push(new sap.ui.model.Sorter(SORTKEY, DESCENDING, GROUP));
+	        oBinding.sort(aSorter);
 		},
-
+		
 		/**
 		 * Event handler for the list selection event
 		 * @param {sap.ui.base.Event} oEvent the list selectionChange event
