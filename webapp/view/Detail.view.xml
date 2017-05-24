@@ -1,4 +1,5 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" controllerName="MyTickets.controller.Detail"><semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" controllerName="MyTickets.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
 			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title="Ticket Details">
 				<f:content>
@@ -15,7 +16,7 @@
 					    <items>
 					        <sap.ui.core:ListItem text="{StatusTxt}" key="{Status}" id="Status_Item"/></items>
 					</ComboBox>
-					<Label text="Solution Category ID" required="true"/>
+					<Label text="Solution Category ID"/>
 					<Input name="CategoryId" id="CategoryId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'SolcatTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }" editable="false"/>
 					<Label text="Ticket Text" required="false"/>
 					<TextArea id="TicketText_id" value="{TicketTxt}" rows="10" editable="false"/>
@@ -24,10 +25,11 @@
 		</f:content>
 		</f:SimpleForm>
 		</semantic:content>
-	<semantic:negativeAction>
-	    <semantic:NegativeAction text="Delete" id="DeleteButton" press="onDelete"/>
-	</semantic:negativeAction>
-	<semantic:editAction><semantic:EditAction id="EditButton" press="onEdit"/>
-	</semantic:editAction>
+		<semantic:negativeAction>
+		    <semantic:NegativeAction text="Delete" id="DeleteButton" press="onDelete"/>
+		</semantic:negativeAction>
+		<semantic:editAction>
+			<semantic:EditAction id="EditButton" press="onEdit"/>
+		</semantic:editAction>
 	</semantic:DetailPage>
 </mvc:View>

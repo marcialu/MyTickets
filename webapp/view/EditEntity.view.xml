@@ -1,10 +1,10 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m" controllerName="MyTickets.controller.CreateEntity">
+<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m" controllerName="MyTickets.controller.EditEntity">
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="{viewModel>/viewTitle}" busy="{viewModel>/busy}">
 		<semantic:content>
-			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title="Create New Ticket">
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title="Edit Ticket {TicketId}">
 				<f:content>
 					<Label text="Ticket ID" required="true"/>
-					<Label text="Description" required="true"/>
+					<Label text="Description" required="false"/>
 					<Input name="Description" id="Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'Description', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:40 } }" required="true"/>
 					<Label text="Priority" required="true"/>
 					<ComboBox value="List Item 1" selectedKey="{Priority}" id="Priority" placeholder="{PriorityTxt}" items="{/PRIORITYSet}" required="true">
@@ -14,7 +14,7 @@
 					<Label text="SolutionCategoryDesc" required="false"/>
 					<Label text="Status" required="false"/>
 					<Input width="100%" id="status_id" editable="false" placeholder="New" dateFormat="" value="New"/>
-					<Label text="Category" required="true"/>
+					<Label text="Category" required="false"/>
 					<ComboBox value="List Item 1" items="{/SOLCATSet}" id="Solution_ID" selectedKey="{CategoryId}" placeholder="{SolcatTxt}" required="true">
 					    <items>
 					        <core:ListItem text="{SolcatTxt}" key="{SolcatId}" id="SolCat_Item"/></items>
@@ -25,7 +25,7 @@
 					<Label text="Status Text" required="false"/>
 					<Label text="Rating" required="false"/>
 					<Label text="Rating Text" required="false"/>
-					<Label text="Issue Description" required="true"/>
+					<Label text="Issue Description" required="false"/>
 					<TextArea id="issue_id" required="true" rows="10" value="{TicketTxt}"/>
 					<Label text="Owner" required="false"/>
 					<Label text="Complete name" required="false"/>
