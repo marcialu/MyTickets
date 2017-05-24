@@ -53,7 +53,8 @@ sap.ui.define([
 		/**
 		 * Event handler when the share in JAM button has been clicked
 		 * @public
-		 */
+		 *
+		 * 
 		onShareInJamPress: function() {
 			var oViewModel = this.getModel("detailView"),
 				oShareDialog = sap.ui.getCore().createComponent({
@@ -68,6 +69,7 @@ sap.ui.define([
 
 			oShareDialog.open();
 		},
+		 */
 
 		/**
 		 * Event handler (attached declaratively) for the view delete button. Deletes the selected item. 
@@ -100,8 +102,33 @@ sap.ui.define([
 		 */
 		onEdit: function() {
 			this.getModel("appView").setProperty("/addEnabled", false);
+			this.getModel("appView").setProperty("/sortEnabled", false);
 			var sObjectPath = this.getView().getElementBinding().getPath();
 			this.getRouter().getTargets().display("edit", {
+				mode: "update",
+				objectPath: sObjectPath
+			});
+		},
+		
+		/**
+		 * Event handler (attached declaratively) for the view reject button. Reject the solution of the ticket.
+		 * @function
+		 * @public
+		 */
+		onReject: function() {
+			alert("on reject pressed");
+		},
+		
+		/**
+		 * Event handler (attached declaratively) for the view confirm button. Confirm the solution of the ticket.
+		 * @function
+		 * @public
+		 */
+		onConfirm: function() {
+			this.getModel("appView").setProperty("/addEnabled", false);
+			this.getModel("appView").setProperty("/sortEnabled", false);
+			var sObjectPath = this.getView().getElementBinding().getPath();
+			this.getRouter().getTargets().display("confirm", {
 				mode: "update",
 				objectPath: sObjectPath
 			});

@@ -82,6 +82,9 @@
     },
     "/webapp/view/EditEntity.view.xml": {
       "entitySet": "/TICKETMYSet"
+    },
+    "/webapp/view/Feedback.view.xml": {
+      "entitySet": "/TICKETMYSet"
     }
   }
 }

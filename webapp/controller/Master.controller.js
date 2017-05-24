@@ -162,8 +162,40 @@ sap.ui.define([
 				this._leaveEditPage(fnLeave);
 			} else {
 				this._showDetail(oItem);
+				
+				//----here you need to detect the status of the ticket---------------------------------
+				//according to that enable or disable the buttons on detail view...
+				/*
+				var ticket_status = //somehow get the status from the selected element...
+				
+				//change enabled to false or true accordingly
+				if(ticket_status === "open") {
+					that.getModel("appView").setProperty("/confirmEnabled", false);
+					that.getModel("appView").setProperty("/rejectEnabled", true);
+					that.getModel("appView").setProperty("/editEnabled", false);
+					that.getModel("appView").setProperty("/deleteEnabled", true);
+				} else if (ticket_status === "state2") {
+					that.getModel("appView").setProperty("/confirmEnabled", true);
+					that.getModel("appView").setProperty("/rejectEnabled", true);
+					that.getModel("appView").setProperty("/editEnabled", true);
+					that.getModel("appView").setProperty("/deleteEnabled", true);
+				} else if (ticket_status === "state3") {
+					that.getModel("appView").setProperty("/confirmEnabled", true);
+					that.getModel("appView").setProperty("/rejectEnabled", true);
+					that.getModel("appView").setProperty("/editEnabled", true);
+					that.getModel("appView").setProperty("/deleteEnabled", true);
+				} else {
+					that.getModel("appView").setProperty("/confirmEnabled", true);
+					that.getModel("appView").setProperty("/rejectEnabled", true);
+					that.getModel("appView").setProperty("/editEnabled", true);
+					that.getModel("appView").setProperty("/deleteEnabled", true);	
+				}
+				//------------------------------------------------------------------
+				*/
 			}
+			
 			that.getModel("appView").setProperty("/addEnabled", true);
+			this.getModel("appView").setProperty("/sortEnabled", true);
 		},
 
 		/**
@@ -220,8 +252,8 @@ sap.ui.define([
 		 */
 		onAdd: function() {
 			this.getModel("appView").setProperty("/addEnabled", false);
+			this.getModel("appView").setProperty("/sortEnabled", false);
 			this.getRouter().getTargets().display("create");
-
 		},
 
 		/* =========================================================== */
