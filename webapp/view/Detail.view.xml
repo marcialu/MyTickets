@@ -26,16 +26,16 @@
 		</f:SimpleForm>
 		</semantic:content>
 		<semantic:negativeAction>
-		    <semantic:NegativeAction text="Delete" id="DeleteButton" press="onDelete"/>
+		    <semantic:NegativeAction text="Reject" id="RejectButton" press="onReject" enabled="{appView>/rejectEnabled}"/>
 		</semantic:negativeAction>
 		<semantic:editAction>
-			<semantic:EditAction id="EditButton" press="onEdit"/>
+			<semantic:EditAction id="EditButton" press="onEdit" enabled="{appView>/editEnabled}"/>
 		</semantic:editAction>
 		<semantic:positiveAction>
-		    <semantic:PositiveAction text="Confirm" id="ConfirmButton" press="onConfirm"/>
+		    <semantic:PositiveAction text="Confirm" id="ConfirmButton" press="onConfirm" enabled="{appView>/confirmEnabled}"/>
 		</semantic:positiveAction>
 		<semantic:mainAction>
-		    <semantic:MainAction text="Reject" id="RejectButton" press="onReject"/>
+		    <semantic:MainAction text="Delete" id="DeleteButton" press="onDelete" enabled="{appView>/deleteEnabled}"/>
 		</semantic:mainAction>
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
