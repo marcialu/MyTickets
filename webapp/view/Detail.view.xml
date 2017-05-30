@@ -5,7 +5,7 @@
 					<Label text="Description" required="false"/>
 					<Input name="Description" id="Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{Description}" editable="false"/>
 					<Label text="Priority" width="100%" id="__label6"/>
-					<ComboBox xmlns:sap.ui.core="sap.ui.core" value="List Item 1" selectedKey="{Priority}" id="Priority_id" placeholder="{PriorityTxt}" items="{/PRIORITYSet}">
+					<ComboBox xmlns:sap.ui.core="sap.ui.core" value="List Item 1" selectedKey="{Priority}" id="Priority_id" placeholder="{PriorityTxt}" items="{/PRIORITYSet}" editable="false">
 					    <items>
 					        <sap.ui.core:ListItem text="{PriorityTxt}" key="{Priority}" id="priorityitem_id"/></items>
 					</ComboBox>
