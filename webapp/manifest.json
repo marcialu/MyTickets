@@ -39,10 +39,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-		]
+		"supportedThemes": ["sap_hcb", "sap_belize"]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -91,31 +88,19 @@
 				"controlId": "idAppControl",
 				"controlAggregation": "detailPages",
 				"bypassed": {
-					"target": [
-						"master",
-						"notFound"
-					]
+					"target": ["master", "notFound"]
 				},
 				"async": "true"
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "master",
-					"target": [
-						"object",
-						"master"
-					]
-				},
-				{
-					"pattern": "TICKETMYSet/{TicketId}",
-					"name": "object",
-					"target": [
-						"master",
-						"object"
-					]
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": ["object", "master"]
+			}, {
+				"pattern": "TICKETMYSet/{TicketId}",
+				"name": "object",
+				"target": ["master", "object"]
+			}],
 			"targets": {
 				"master": {
 					"viewName": "Master",
@@ -143,6 +128,14 @@
 				"notFound": {
 					"viewName": "NotFound",
 					"viewId": "notFound"
+				},
+				"edit": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewLevel": 2,
+					"viewId": "edit",
+					"viewName": "EditEntity"
 				}
 			}
 		}
