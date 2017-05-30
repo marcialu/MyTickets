@@ -85,7 +85,7 @@ sap.ui.define([
 		onEdit: function() {
 			this.getModel("appView").setProperty("/addEnabled", false);
 			var sObjectPath = this.getView().getElementBinding().getPath();
-			this.getRouter().getTargets().display("create", {
+			this.getRouter().getTargets().display("edit", {
 				mode: "update",
 				objectPath: sObjectPath
 			});
