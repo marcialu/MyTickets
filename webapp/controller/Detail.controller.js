@@ -7,15 +7,11 @@ sap.ui.define([
 	"sap/m/MessageToast"
 ], function(BaseController, JSONModel, formatter, MessageBox, MessageToast) {
 	"use strict";
-
 	return BaseController.extend("MyTickets.controller.Detail", {
-
 		formatter: formatter,
-
 		/* =========================================================== */
 		/* lifecycle methods                                           */
 		/* =========================================================== */
-
 		onInit: function() {
 			// Model used to manipulate control states. The chosen values make sure,
 			// detail page is busy indication immediately so there is no break in
@@ -24,32 +20,24 @@ sap.ui.define([
 				busy: false,
 				delay: 0
 			});
-
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 			this.setModel(oViewModel, "detailView");
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 			this._oODataModel = this.getOwnerComponent().getModel();
 			this._oResourceBundle = this.getResourceBundle();
 		},
-
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
-
 		/**
 		 * Event handler when the share by E-Mail button has been clicked
 		 * @public
 		 */
 		onShareEmailPress: function() {
 			var oViewModel = this.getModel("detailView");
-
-			sap.m.URLHelper.triggerEmail(
-				null,
-				oViewModel.getProperty("/shareSendEmailSubject"),
-				oViewModel.getProperty("/shareSendEmailMessage")
-			);
+			sap.m.URLHelper.triggerEmail(null, oViewModel.getProperty("/shareSendEmailSubject"), oViewModel.getProperty(
+				"/shareSendEmailMessage"));
 		},
-
 		/**
 		 * Event handler when the share in JAM button has been clicked
 		 * @public
@@ -65,10 +53,8 @@ sap.ui.define([
 						}
 					}
 				});
-
 			oShareDialog.open();
 		},
-
 		/**
 		 * Event handler (attached declaratively) for the view delete button. Deletes the selected item. 
 		 * @function
@@ -81,7 +67,6 @@ sap.ui.define([
 				sObjectHeader = this._oODataModel.getProperty(sPath + "/Description"),
 				sQuestion = this._oResourceBundle.getText("deleteText", sObjectHeader),
 				sSuccessMessage = this._oResourceBundle.getText("deleteSuccess", sObjectHeader);
-
 			var fnMyAfterDeleted = function() {
 				MessageToast.show(sSuccessMessage);
 				oViewModel.setProperty("/busy", false);
@@ -92,7 +77,6 @@ sap.ui.define([
 				question: sQuestion
 			}, [sPath], fnMyAfterDeleted);
 		},
-
 		/**
 		 * Event handler (attached declaratively) for the view edit button. Open a view to enable the user update the selected item. 
 		 * @function
@@ -106,11 +90,9 @@ sap.ui.define([
 				objectPath: sObjectPath
 			});
 		},
-
 		/* =========================================================== */
 		/* begin: internal methods                                     */
 		/* =========================================================== */
-
 		/**
 		 * Binds the view to the object path and expands the aggregated line items.
 		 * @function
@@ -127,7 +109,6 @@ sap.ui.define([
 				this._bindView("/" + sObjectPath);
 			}.bind(this));
 		},
-
 		/**
 		 * Binds the view to the object path. Makes sure that detail view displays
 		 * a busy indicator while data for the corresponding element binding is loaded.
@@ -138,10 +119,8 @@ sap.ui.define([
 		_bindView: function(sObjectPath) {
 			// Set busy indicator during view binding
 			var oViewModel = this.getModel("detailView");
-
 			// If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
 			oViewModel.setProperty("/busy", false);
-
 			this.getView().bindElement({
 				path: sObjectPath,
 				events: {
@@ -155,19 +134,16 @@ sap.ui.define([
 				}
 			});
 		},
-
 		/**
 		 * Event handler for binding change event
 		 * @function
 		 * @private
 		 */
-
 		_onBindingChange: function() {
 			var oView = this.getView(),
 				oElementBinding = oView.getElementBinding(),
 				oViewModel = this.getModel("detailView"),
 				oAppViewModel = this.getModel("appView");
-
 			// No data for the binding
 			if (!oElementBinding.getBoundContext()) {
 				this.getRouter().getTargets().display("detailObjectNotFound");
@@ -176,47 +152,41 @@ sap.ui.define([
 				this.getOwnerComponent().oListSelector.clearMasterListSelection();
 				return;
 			}
-
 			var sPath = oElementBinding.getBoundContext().getPath(),
 				oResourceBundle = this.getResourceBundle(),
 				oObject = oView.getModel().getObject(sPath),
 				sObjectId = oObject.TicketId,
 				sObjectName = oObject.Description;
-
 			oViewModel.setProperty("/sObjectId", sObjectId);
 			oViewModel.setProperty("/sObjectPath", sPath);
 			oAppViewModel.setProperty("/itemToSelect", sPath);
 			this.getOwnerComponent().oListSelector.selectAListItem(sPath);
-
 			oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("shareSaveTileAppTitle", [sObjectName]));
 			oViewModel.setProperty("/shareOnJamTitle", sObjectName);
-			oViewModel.setProperty("/shareSendEmailSubject",
-				oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
-			oViewModel.setProperty("/shareSendEmailMessage",
-				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
+			oViewModel.setProperty("/shareSendEmailSubject", oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
+			oViewModel.setProperty("/shareSendEmailMessage", oResourceBundle.getText("shareSendEmailObjectMessage", [
+				sObjectName,
+				sObjectId,
+				location.href
+			]));
 		},
-
 		/**
 		 * Event handler for metadata loaded event
 		 * @function
 		 * @private
 		 */
-
 		_onMetadataLoaded: function() {
 			// Store original busy indicator delay for the detail view
 			var iOriginalViewBusyDelay = this.getView().getBusyIndicatorDelay(),
 				oViewModel = this.getModel("detailView");
-
 			// Make sure busy indicator is displayed immediately when
 			// detail view is displayed for the first time
 			oViewModel.setProperty("/delay", 0);
-
 			// Binding the view will set it to not busy - so the view is always busy if it is not bound
 			oViewModel.setProperty("/busy", true);
 			// Restore original busy indicator delay for the detail view
 			oViewModel.setProperty("/delay", iOriginalViewBusyDelay);
 		},
-
 		/**
 		 * Opens a dialog letting the user either confirm or cancel the deletion of a list of entities
 		 * @param {object} oConfirmation - Possesses up to two attributes: question (obligatory) is a string providing the statement presented to the user.
@@ -229,7 +199,8 @@ sap.ui.define([
 		 * @function
 		 * @private
 		 */
-		/* eslint-disable */ // using more then 4 parameters for a function is justified here
+		/* eslint-disable */
+		// using more then 4 parameters for a function is justified here
 		_confirmDeletionByUser: function(oConfirmation, aPaths, fnAfterDeleted, fnDeleteCanceled, fnDeleteConfirmed) {
 			/* eslint-enable */
 			// Callback function for when the user decides to perform the deletion
@@ -237,12 +208,14 @@ sap.ui.define([
 				// Calls the oData Delete service
 				this._callDelete(aPaths, fnAfterDeleted);
 			}.bind(this);
-
 			// Opens the confirmation dialog
 			MessageBox.show(oConfirmation.question, {
 				icon: oConfirmation.icon || MessageBox.Icon.WARNING,
 				title: oConfirmation.title || this._oResourceBundle.getText("delete"),
-				actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+				actions: [
+					MessageBox.Action.OK,
+					MessageBox.Action.CANCEL
+				],
 				onClose: function(oAction) {
 					if (oAction === MessageBox.Action.OK) {
 						fnDelete();
@@ -252,7 +225,6 @@ sap.ui.define([
 				}
 			});
 		},
-
 		/**
 		 * Performs the deletion of a list of entities.
 		 * @param {array} aPaths -  Array of strings representing the context paths to the entities to be deleted. Currently only one is supported.
@@ -276,7 +248,6 @@ sap.ui.define([
 			}.bind(this);
 			return this._deleteOneEntity(aPaths[0], fnSuccess, fnFailed);
 		},
-
 		/**
 		 * Deletes the entity from the odata model
 		 * @param {array} aPaths -  Array of strings representing the context paths to the entities to be deleted. Currently only one is supported.
@@ -296,7 +267,14 @@ sap.ui.define([
 			}.bind(this));
 			oPromise.then(fnSuccess, fnFailed);
 			return oPromise;
+		},
+		/**
+		 *@memberOf MyTickets.controller.Detail
+		 */
+		onStatusChange: function() {
+			var statusbox = sap.ui.getCore().byId("Status_ID");
+			var status = statusbox.selectedItemId();
+			alert(status);
 		}
-
 	});
 });

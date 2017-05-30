@@ -29,5 +29,8 @@
 	</semantic:negativeAction>
 	<semantic:editAction><semantic:EditAction id="EditButton" press="onEdit"/>
 	</semantic:editAction>
+	<semantic:customFooterContent>
+	    <Button text="Confirm" width="100px" id="Confirm_id" type="Accept"/>
+	</semantic:customFooterContent>
 	</semantic:DetailPage>
 </mvc:View>
