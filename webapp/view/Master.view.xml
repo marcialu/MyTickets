@@ -19,7 +19,7 @@
 				<items>
 					<ObjectListItem type="Navigation" press="onSelectionChange" title="{Description}">
 					    <firstStatus>
-					        <ObjectStatus id="Status_id" text="{StatusTxt}" state="None"/>
+					        <ObjectStatus id="Status_id" text="{StatusTxt}"/>
 					    </firstStatus>
 					</ObjectListItem>
 				</items>
