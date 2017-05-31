@@ -52,6 +52,8 @@ sap.ui.define([
 		 * @public
 		 */
 		onSave: function() {
+			//this._validateSaveEnablement();
+			
 			var that = this,
 				oModel = this.getModel();
 
@@ -204,7 +206,6 @@ sap.ui.define([
 		 * @private
 		 */
 		_validateSaveEnablement: function() {
-			alert("validate input");
 			var aInputControls = this._getFormFields(this.byId("newEntitySimpleForm"));
 			var oControl;
 			for (var m = 0; m < aInputControls.length; m++) {

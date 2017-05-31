@@ -25,9 +25,11 @@
 		</f:content>
 		</f:SimpleForm>
 		</semantic:content>
+		<!--
 		<semantic:negativeAction>
 		    <semantic:NegativeAction text="Reject" id="RejectButton" press="onReject" enabled="{appView>/rejectEnabled}"/>
 		</semantic:negativeAction>
+		-->
 		<semantic:editAction>
 			<semantic:EditAction id="EditButton" press="onEdit" enabled="{appView>/editEnabled}"/>
 		</semantic:editAction>

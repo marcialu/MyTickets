@@ -6,20 +6,20 @@
 					<Label text="Description" required="false"/>
 					<Input name="Description" id="Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{Description}" editable="false"/>
 					<Label text="Priority" width="100%" id="__label6"/>
-					<ComboBox xmlns:sap.ui.core="sap.ui.core" value="List Item 1" selectedKey="{Priority}" id="Priority_id" placeholder="{PriorityTxt}" items="{/PRIORITYSet}">
+					<ComboBox xmlns:sap.ui.core="sap.ui.core" value="List Item 1" selectedKey="{Priority}" id="Priority_id" placeholder="{PriorityTxt}" items="{/PRIORITYSet}" change="_validateSaveEnablement">
 					    <items>
 					        <sap.ui.core:ListItem text="{PriorityTxt}" key="{Priority}" id="priorityitem_id"/></items>
 					</ComboBox>
 					<Label text="Priority" required="false"/>
 					<Label text="Status" required="false"/>
-					<ComboBox xmlns:sap.ui.core="sap.ui.core" value="List Item 1" selectedKey="{Status}" id="Status_ID" placeholder="{StatusTxt}" items="{/STATUSSet}">
+					<ComboBox xmlns:sap.ui.core="sap.ui.core" value="List Item 1" selectedKey="{Status}" id="Status_ID" placeholder="{StatusTxt}" items="{/STATUSSet}" change="_validateSaveEnablement">
 					    <items>
 					        <sap.ui.core:ListItem text="{StatusTxt}" key="{Status}" id="Status_Item"/></items>
 					</ComboBox>
 					<Label text="Category"/>
 					<Input name="CategoryId" id="CategoryId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'SolcatTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }" editable="false"/>
 					<Label text="Detail Description" required="true"/>
-					<TextArea id="TicketText_id" value="{TicketTxt}" rows="10" required="true"/>
+					<TextArea id="TicketText_id" value="{TicketTxt}" rows="10" required="true" change="_validateSaveEnablement"/>
 					<Label text="Solution" required="false"/>
 					<TextArea id="SolutionText_id" value="{SolutionTxt}" editable="false" rows="10"/>
 				</f:content>
