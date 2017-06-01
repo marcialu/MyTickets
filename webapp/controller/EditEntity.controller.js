@@ -6,7 +6,7 @@ sap.ui.define([
 ], function(BaseController, JSONModel, MessageBox) {
 	"use strict";
 
-	return BaseController.extend("MyTickets.controller.CreateEntity", {
+	return BaseController.extend("MyTickets.controller.EditEntity", {
 
 		_oBinding: {},
 
@@ -16,18 +16,17 @@ sap.ui.define([
 
 		onInit: function() {
 			var that = this;
-			this.getRouter().getTargets().getTarget("create").attachDisplay(null, this._onDisplay, this);
+			this.getRouter().getTargets().getTarget("edit").attachDisplay(null, this._onDisplay, this);
 			this._oODataModel = this.getOwnerComponent().getModel();
 			this._oResourceBundle = this.getResourceBundle();
 			this._oViewModel = new JSONModel({
 				enableCreate: false,
 				delay: 0,
 				busy: false,
-				mode: "create",
+				mode: "edit",
 				viewTitle: ""
 			});
 			this.setModel(this._oViewModel, "viewModel");
-
 			// Register the view with the message manager
 			sap.ui.getCore().getMessageManager().registerObject(this.getView(), true);
 			var oMessagesModel = sap.ui.getCore().getMessageManager().getMessageModel();
@@ -47,7 +46,7 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * Event handler (attached declaratively) for the view save button. Saves the changes added by the user. 
+	 * Event handler (attached declaratively) for the view save button. Saves the changes added by the user. 
 		 * @function
 		 * @public
 		 */
@@ -107,7 +106,7 @@ sap.ui.define([
 		onCancel: function() {
 			// check if the model has been changed
 			if (this.getModel().hasPendingChanges()) {
-				// get user confirmation first
+			// get user confirmation first
 				this._showConfirmQuitChanges(); // some other thing here....
 			} else {
 				this.getModel("appView").setProperty("/addEnabled", true);
@@ -133,7 +132,7 @@ sap.ui.define([
 				// The history contains a previous entry
 				history.go(-1);
 			} else {
-				this.getRouter().getTargets().display("object");
+			this.getRouter().getTargets().display("object");
 			}
 		},
 
@@ -144,7 +143,7 @@ sap.ui.define([
 		_showConfirmQuitChanges: function() {
 			var oComponent = this.getOwnerComponent(),
 				oModel = this.getModel();
-			var that = this;
+		var that = this;
 			MessageBox.confirm(
 				this._oResourceBundle.getText("confirmCancelMessage"), {
 					styleClass: oComponent.getContentDensityClass(),
@@ -160,7 +159,7 @@ sap.ui.define([
 		},
 
 		/**
-		 * Prepares the view for editing the selected object
+	 * Prepares the view for editing the selected object
 		 * @param {sap.ui.base.Event} oEvent the  display event
 		 * @private
 		 */
@@ -180,7 +179,7 @@ sap.ui.define([
 		 * Prepares the view for creating new object
 		 * @param {sap.ui.base.Event} oEvent the  display event
 		 * @private
-		 */
+	 */
 
 		_onCreate: function(oEvent) {
 			if (oEvent.getParameter("name") && oEvent.getParameter("name") !== "create") {
@@ -202,8 +201,8 @@ sap.ui.define([
 		/**
 		 * Checks if the save button can be enabled
 		 * @private
-		 */
-		_validateSaveEnablement: function() {
+	 */
+	_validateSaveEnablement: function() {
 			var aInputControls = this._getFormFields(this.byId("newEntitySimpleForm"));
 			var oControl;
 			for (var m = 0; m < aInputControls.length; m++) {
@@ -225,7 +224,7 @@ sap.ui.define([
 		 */
 
 		_checkForErrorMessages: function() {
-			var aMessages = this._oBinding.oModel.oData;
+		var aMessages = this._oBinding.oModel.oData;
 			if (aMessages.length > 0) {
 				var bEnableCreate = true;
 				for (var i = 0; i < aMessages.length; i++) {
@@ -243,7 +242,7 @@ sap.ui.define([
 		/**
 		 * Handles the success of updating an object
 		 * @private
-		 */
+	 */
 		_fnUpdateSuccess: function() {
 			this.getModel("appView").setProperty("/busy", false);
 			this.getView().unbindObject();
@@ -254,8 +253,8 @@ sap.ui.define([
 		 * Handles the success of creating an object
 		 *@param {object} oData the response of the save action
 		 * @private
-		 */
-		_fnEntityCreated: function(oData) {
+	 */
+	_fnEntityCreated: function(oData) {
 			var sObjectPath = this.getModel().createKey("TICKETMYSet", oData);
 			this.getModel("appView").setProperty("/itemToSelect", "/" + sObjectPath); //save last created
 			this.getModel("appView").setProperty("/busy", false);
