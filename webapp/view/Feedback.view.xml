@@ -1,22 +1,52 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" controllerName="MyTickets.controller.Detail"><semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{Description}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
- 		<semantic:content>
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" controllerName="MyTickets.controller.Feedback">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{Description}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
  			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title="Ticket Details - Feedback">
  				<f:content>
- 					<Label text="Description" required="false"/>
- 					<Label text="Priority" required="false"/>
- 					<Label text="Status" required="false"/>
- 					<Label text="Solution Category ID"/>
- 					<Label text="Ticket Text" required="false"/>
- 					<Label text="Text" required="false"/><RatingIndicator id="__indicator0" value="4"/>
- 				    <RadioButton text="Radio Button" id="__button0"/>
- 		</f:content>
- 		</f:SimpleForm>
- 		</semantic:content>
- 		<semantic:saveAction>
+ 					<Label text="Overall Service" width="100%" id="header_id" design="Bold"/>
+ 					<Text text="Considering your last IT support request, please rate on a scale of 1-5, 5 being extremely poor and 1 being perfect, the level of performance in each area of service." id="text_id">
+ 					
+ 					</Text>
+ 				
+ 					<Label text="Status" width="100%" id="statuslabel_id" required="true"/>
+ 				
+ 					<ComboBox selectedItem="null" value="List Item 1" selectedKey="{Status}" xmlns:sap.ui.core="sap.ui.core" id="status_id" placeholder="{StatusTxt}" required="true" items="{/STATUSSet}">
+ 				
+ 					<items>
+ 				
+ 				    	<sap.ui.core:ListItem text="{StatusTxt}" id="statusitem_id" key="{Status}"/>
+ 				
+ 					</items>
+ 				
+ 					</ComboBox>
+ 			
+ 					<Label text="Rating" width="100%" id="ratinglabel_id" required="true"/>
+ 				
+ 					<ComboBox xmlns:sap.ui.core="sap.ui.core" selectedKey="{Rating}" id="rating_id" required="true" placeholder="{RatingTxt}" items="{/RATINGSet}">
+ 					
+ 					  <items>
+ 					
+ 				    	 <sap.ui.core:ListItem text="{RatingTxt}" id="ratingitem_id" key="{Rating}"/></items>
+ 					
+ 					</ComboBox>
+ 					
+ 					<Label text="Comments" id="commentlabel_id"/>
+ 					
+ 					<TextArea id="comment_id" value="{CommentTxt}" placeholder="Enter a comment ..." rows="10" growing="true" growingMaxLines="30"/>
+ 					
+ 				
+ 					
+ 			
+ 					
+ 				</f:content>
+ 			</f:SimpleForm>
+ 			
+ 	</semantic:content>
+ 	<semantic:saveAction>
  			<semantic:SaveAction id="save" press="onSave" enabled="{viewModel>/enableCreate}"/>
  		</semantic:saveAction>
  		<semantic:cancelAction>
  			<semantic:CancelAction id="cancel" press="onCancel"/>
  		</semantic:cancelAction>
  	</semantic:DetailPage>
- </mvc:View> 
+ </mvc:View>
