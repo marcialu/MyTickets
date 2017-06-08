@@ -26,10 +26,10 @@
 			</List>
 		</semantic:content>
 		<semantic:sort>
- 			<semantic:SortAction tooltip="Sort by ticket description" id="sortButton" press="onSort"/>
+ 			<semantic:SortAction tooltip="Sort by ticket description" id="sortButton" press="onSort" enabled="{appView>/sortEnabled}"/>
  		</semantic:sort>
 		<semantic:addAction>
-			<semantic:AddAction id="addButton" enabled="{appView>/addEnabled}" press="onAdd"/>
+			<semantic:AddAction tooltip="Create new ticket" id="addButton" enabled="{appView>/addEnabled}" press="onAdd"/>
 		</semantic:addAction>
 	</semantic:MasterPage>
 </mvc:View>
