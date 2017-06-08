@@ -22,6 +22,9 @@
 		"sourceTemplate": {
 			"id": "ui5template.2masterdetailcrud",
 			"version": "1.40.12"
+		},
+ 		"crossNavigation": {
+ 			"inbounds": {}
 		}
 	},
 	"sap.ui": {
