@@ -3,39 +3,25 @@
  		<semantic:content>
  			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm" labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title="Edit Ticket {TicketId}">
  				<f:content>
- 					<Label text="Ticket ID" required="true"/>
  					<Label text="Description" required="false"/>
- 					<Input name="Description" id="Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'Description', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:40 } }" required="true"/>
- 					<Label text="Priority" required="true"/>
- 					<ComboBox value="List Item 1" selectedKey="{Priority}" id="Priority" placeholder="{PriorityTxt}" items="{/PRIORITYSet}" required="true">
+ 					<Input name="Description" id="Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{Description}" editable="false"/>
+ 					<Label text="Priority" width="100%" id="__label6"/>
+ 					<ComboBox xmlns:sap.ui.core="sap.ui.core" value="List Item 1" selectedKey="{Priority}" id="Priority_id" placeholder="{PriorityTxt}" items="{/PRIORITYSet}">
  					    <items>
- 					        <core:ListItem text="{PriorityTxt}" key="{Priority}" id="Prio_Item"/></items>
+ 					        <sap.ui.core:ListItem text="{PriorityTxt}" key="{Priority}" id="priorityitem_id"/></items>
+					</ComboBox>
+					<Label text="Priority" required="false"/>
+					<Label text="Status" required="false"/>
+					<ComboBox xmlns:sap.ui.core="sap.ui.core" value="List Item 1" selectedKey="{Status}" id="Status_ID" placeholder="{StatusTxt}" items="{/STATUSSet}">
+  					    <items>
+ 					        <sap.ui.core:ListItem text="{StatusTxt}" key="{Status}" id="Status_Item"/></items>
  					</ComboBox>
- 					<Label text="SolutionCategoryDesc" required="false"/>
- 					<Label text="Status" required="false"/>
- 					<Input width="100%" id="status_id" editable="false" placeholder="New" dateFormat="" value="New"/>
- 					<Label text="Category" required="false"/>
- 					<ComboBox value="List Item 1" items="{/SOLCATSet}" id="Solution_ID" selectedKey="{CategoryId}" placeholder="{SolcatTxt}" required="true">
- 					    <items>
- 					        <core:ListItem text="{SolcatTxt}" key="{SolcatId}" id="SolCat_Item"/></items>
- 					</ComboBox>
- 					<Label text="Priority" required="false"/>
- 					<Label text="Priority Text" required="false"/>
- 					<Label text="Status" required="false"/>
- 					<Label text="Status Text" required="false"/>
- 					<Label text="Rating" required="false"/>
- 					<Label text="Rating Text" required="false"/>
- 					<Label text="Issue Description" required="false"/>
- 					<TextArea id="issue_id" required="true" rows="10" value="{TicketTxt}"/>
- 					<Label text="Owner" required="false"/>
- 					<Label text="Complete name" required="false"/>
- 					<Label text="Solved By" required="false"/>
- 					<Label text="Complete name" required="false"/>
- 					<Label text="Created by" required="false"/>
- 					<Label text="Time Stamp" required="false"/>
- 					<Label text="User Name" required="false"/>
- 					<Label text="Time Stamp" required="false"/>
- 					<Label text="Deleted" required="false"/>
+ 					<Label text="Category"/>
+ 					<Input name="CategoryId" id="CategoryId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'SolcatTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }" editable="false"/>
+ 					<Label text="Detail Description" required="true"/>
+ 					<TextArea id="TicketText_id" value="{TicketTxt}" rows="10" required="true"/>
+ 					<Label text="Solution" required="false"/>
+ 					<TextArea id="SolutionText_id" value="{SolutionTxt}" editable="false" rows="10"/>
  				</f:content>
  			</f:SimpleForm>
  		</semantic:content>
@@ -46,4 +32,4 @@
  			<semantic:CancelAction id="cancel" press="onCancel"/>
  		</semantic:cancelAction>
  	</semantic:DetailPage>
- </mvc:View> 
+ </mvc:View>
