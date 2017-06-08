@@ -16,11 +16,11 @@
 					    <items>
 					        <sap.ui.core:ListItem text="{StatusTxt}" key="{Status}" id="Status_Item"/></items>
 					</ComboBox>
-					<Label text="Solution Category ID"/>
-  					<Input name="CategoryId" id="CategoryId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'SolcatTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }" editable="false"/>
-  					<Label text="Ticket Text" required="false"/>
+					<Label text="Category"/>
+					<Input name="CategoryId" id="CategoryId_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true" value="{ path: 'SolcatTxt', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:5, nullable:false } }" editable="false"/>
+  					<Label text="Detail Description" required="false"/>
   					<TextArea id="TicketText_id" value="{TicketTxt}" rows="10" editable="false"/>
-  					<Label text="Solution Text" required="false"/>
+  					<Label text="Solution" required="false"/>
   					<TextArea id="SolutionText_id" value="{SolutionTxt}" editable="false" rows="10"/>
 		</f:content>
 		</f:SimpleForm>
@@ -31,5 +31,22 @@
 		<semantic:editAction>
 			<semantic:EditAction id="EditButton" press="onEdit"/>
 		</semantic:editAction>
+		<semantic:positiveAction>
+			<semantic:PositiveAction text="Confirm" id="ConfirmButton" press="onConfirm"/>
+		</semantic:positiveAction>
+		<semantic:mainAction>
+			<semantic:MainAction text="Reject" id="RejectButton" press="onReject"/>
+		</semantic:mainAction>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<!--
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+		-->
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
 	</semantic:DetailPage>
 </mvc:View>
