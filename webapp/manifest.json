@@ -136,9 +136,17 @@
 					"viewType": "XML",
 					"transition": "slide",
 					"clearAggregation": true,
+					"viewName": "EditEntity",
 					"viewLevel": 2,
 					"viewId": "edit",
-					"viewName": "EditEntity"
+				},
+				"confirm": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Feedback",
+ 					"viewId": "confirm",
+ 					"viewLevel": 2
 				}
 			}
 		}
